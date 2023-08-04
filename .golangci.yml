@@ -13,6 +13,7 @@ linters:
     - forcetypeassert
     - godot
     - gofmt
+    - goimports
     - gosimple
     - ineffassign
     - makezero

@@ -39,15 +39,8 @@ func main() {
 	flag.Parse()
 
 	opts := providerserver.ServeOpts{
-		// NOTE: This is not a typical Terraform Registry provider address,
-		// such as registry.terraform.io/hashicorp/hashicups. This specific
-		// provider address is used in these tutorials in conjunction with a
-		// specific Terraform CLI configuration for manual development testing
-		// of this provider.
-		// TODO: perhaps move into onesignal org?
-		Address: "hashicorp.com/niels-s/bitwarden",
-		//Address: "registry.terraform.io/niels-s/terraform-provider-bitwarden",
-		Debug: debug,
+		Address: "registry.terraform.io/onesignal/terraform-provider-bitwarden",
+		Debug:   debug,
 	}
 
 	err := providerserver.Serve(context.Background(), provider.New(version), opts)
