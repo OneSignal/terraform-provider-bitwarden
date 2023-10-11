@@ -11,10 +11,17 @@ import (
 )
 
 type Client interface {
+	// Group
 	CreateGroup(ctx context.Context, group Group) (*Group, error)
 	GetGroup(ctx context.Context, id string) (*Group, error)
 	UpdateGroup(ctx context.Context, id string, group Group) (*Group, error)
 	DeleteGroup(ctx context.Context, id string) error
+
+	// Member
+	CreateMember(ctx context.Context, group Member) (*ResponseMember, error)
+	GetMember(ctx context.Context, id string) (*ResponseMember, error)
+	UpdateMember(ctx context.Context, id string, group Member) (*ResponseMember, error)
+	DeleteMember(ctx context.Context, id string) error
 }
 type client struct {
 	apiURL      string
