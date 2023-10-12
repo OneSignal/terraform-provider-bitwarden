@@ -126,7 +126,7 @@ func (r *groupResource) Create(ctx context.Context, req resource.CreateRequest, 
 	plan.ExternalId = types.StringValue(newGroup.ExternalId)
 	plan.Name = types.StringValue(newGroup.Name)
 	plan.AccessAll = types.BoolValue(newGroup.AccessAll)
-	plan.LastUpdated = types.StringValue(time.Now().Format(time.RFC850))
+	plan.LastUpdated = types.StringValue(time.Now().UTC().Format(time.RFC850))
 
 	// Set state to fully populated data
 	diags = resp.State.Set(ctx, plan)
@@ -200,7 +200,7 @@ func (r *groupResource) Update(ctx context.Context, req resource.UpdateRequest, 
 	plan.ExternalId = types.StringValue(newGroup.ExternalId)
 	plan.Name = types.StringValue(newGroup.Name)
 	plan.AccessAll = types.BoolValue(newGroup.AccessAll)
-	plan.LastUpdated = types.StringValue(time.Now().Format(time.RFC850))
+	plan.LastUpdated = types.StringValue(time.Now().UTC().Format(time.RFC850))
 
 	diags = resp.State.Set(ctx, plan)
 	resp.Diagnostics.Append(diags...)
