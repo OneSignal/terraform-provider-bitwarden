@@ -235,5 +235,6 @@ func (p *bitwardenProvider) DataSources(_ context.Context) []func() datasource.D
 func (p *bitwardenProvider) Resources(_ context.Context) []func() resource.Resource {
 	return []func() resource.Resource{
 		NewGroupResource,
+		NewMemberResource,
 	}
 }
